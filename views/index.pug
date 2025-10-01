@@ -2,17 +2,4 @@ extends layout
 include _loginModal.pug
 
 block content
-  .header 
-    .title
-      h1= header
-    nav.headerNav 
-      ul.headerNavList 
-        li Profile 
-        li Home 
-        li
-          if !user.isLoggedIn
-            a(href="/login") Log In
-          else 
-            a(href="/logout") Log Out
-
   +loginModal()

@@ -4,4 +4,25 @@ html
     title= title
     link(rel="stylesheet", href="/css/style.css")
   body
+    .header 
+      .title
+        h1= header
+        nav.headerNav
+          a(href='/') Home
+          if user.isLoggedIn
+            a(href='/profile') Profile
+            form#logout-form(action="/logout", method="POST")
+              button(type="submit") Logout
+          else
+            a#login-link(href='/login') Login
+    script.
+      const logoutForm = document.getElementById("logout-form");
+      if (logoutForm) {
+        logoutForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          fetch("/logout", { method: "POST" })
+            .then(() => window.location.href = "/")
+            .catch(() => window.location.href = "/");
+        });
+      }
     block content

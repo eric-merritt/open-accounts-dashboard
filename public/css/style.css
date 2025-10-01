@@ -1,44 +1,71 @@
-:root {
-    background-color: rgba(104, 104, 161, 0.808)
+/* Reset some basics */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-div.header {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(104, 104, 161, 0.8);
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-nav.headerNav > ul {
-    display: flex;
-    flex-direction: row; 
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Sticky header container */
+.header {
+  position: sticky;
+  top: 0;                   /* stick to the top */
+  z-index: 1000;            /* keep it above page content */
+  background-color: #1e1e2f; /* dark backdrop */
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-nav.headerNav > ul > li {
-    padding: 0.25em;
-    margin: 10pt;
+/* Title area */
+.header .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
 }
 
-div.title {
-    margin: 0; 
-    padding: 0;
+/* Site name / H1 */
+.header .title h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f5f5f5;
 }
 
-a {
-    text-decoration: none;
-
-    
-} :visited {
-    text-decoration: none;
-    color: black;
+/* Nav links */
+nav.headerNav {
+  display: flex;
+  gap: 1.5rem;
 }
 
-h1 {
-    margin: 0;
-    padding: 0;
+nav.headerNav a,
+#logout-form button,
+#login-link {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover effects */
+nav.headerNav a:hover,
+#logout-form button:hover,
+#login-link:hover {
+  color: #00bcd4; /* teal highlight */
+}
+
+/* Make logout form inline so button behaves like link */
+#logout-form {
+  display: inline;
+}
+
+#logout-form button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
 }
