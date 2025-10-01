@@ -1,0 +1,26 @@
+{
+  "name": "open-accounts-dashboard",
+  "version": "1.0.0",
+  "description": "A simple card style dashboard with functions for to-dos and tracking of customer engagements across company accounts with no assigned salesperson. Plans to add salesforce integration",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.2",
+    "error": "^10.4.0",
+    "express": "^5.1.0",
+    "https": "^1.0.0",
+    "mongoose": "^8.18.2",
+    "path": "^0.12.7",
+    "pug": "^3.0.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}

@@ -1,0 +1,44 @@
+:root {
+    background-color: rgba(104, 104, 161, 0.808)
+}
+
+div.header {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(104, 104, 161, 0.8);
+}
+
+nav.headerNav > ul {
+    display: flex;
+    flex-direction: row; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.headerNav > ul > li {
+    padding: 0.25em;
+    margin: 10pt;
+}
+
+div.title {
+    margin: 0; 
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+
+    
+} :visited {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
