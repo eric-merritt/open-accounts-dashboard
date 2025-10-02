@@ -40,29 +40,6 @@ main().catch((error) => { console.log(error)});
 async function main() {
     try {
         await mongoose.connect(URI);
-        let existingUsers = await User.find();
-        if (existingUsers.length !== 0) {
-            console.log("Not first run. No data to push.");
-        } else {
-            const hash1 = await bcrypt.hash(defaultPassword, 10);
-            const hash2 = await bcrypt.hash(defaultPassword, 10);
-            const user1 = new User({
-                firstName: "Erik", 
-                lastName: "Britton",
-                passwordHash: hash1,
-                territory: "East"
-            });
-            const user2 = new User({
-                firstName: "Eric",
-                lastName: "Merritt",
-                passwordHash: hash2,
-                territory: "West"
-            })
-
-            const newUsers = await User.insertMany([user1, user2]);
-
-            console.log("Inserted Users: ", newUsers);
-        }
     } catch (err) {
         let error = new Error(err);
         console.error(err.message);

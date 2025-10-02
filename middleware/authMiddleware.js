@@ -1,17 +1,20 @@
 const jwt = require("jsonwebtoken");
 
-function requireUser(req, res, next) {
+const requireUser =  (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
     req.user = null;
-    return next();
+    return next(); // let through for /login etc
   }
+
   try {
-    req.user = jwt.verify(token, process.env.JWT_SECRET);
-  } catch {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+  } catch (err) {
     req.user = null;
   }
+
   next();
-}
+};
 
 module.exports = requireUser;

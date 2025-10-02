@@ -3,24 +3,33 @@ html
   head
     title= title
     link(rel="stylesheet", href="/css/style.css")
+    script(src="/js/main.js", defer)
+
   body
-    .header 
+    .header
       .title
         h1= header
         nav.headerNav
           a(href='/') Home
-          if user.isLoggedIn
+          if user && user.isLoggedIn
             a(href='/profile') Profile
             form#logout-form(action="/logout", method="POST")
               button(type="submit") Logout
           else
-            #loginModal 
-              form(action="/login", method="post")
-                fieldset
-                  label(for="email") Email:
-                  input(type="email", name="email", placeholder="Enter your RMI email", required)
-                fieldset
-                  label(for="password") Password:
-                  input(type="password", name="password", placeholder="Password", required)
-                  button(type="submit") Login
-block content
+            a#login-link(href='/login') Login
+
+    //- Login Modal
+    #loginModal.modal
+      .modal-content
+        span#closeModal.close &times;
+        h2 Login
+        form#modalForm
+          fieldset
+            label(for="email") Email
+            input(type="email", name="email", required)
+          fieldset
+            label(for="password") Password
+            input(type="password", name="password", required)
+          button(type="submit") Login
+
+    block content
