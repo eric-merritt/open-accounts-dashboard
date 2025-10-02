@@ -1,0 +1,21 @@
+extends layout
+block content
+  .profile-card
+    h2 Profile
+    ul
+      if user.username
+        li
+          strong Username:
+          |  #{user.username}
+      if user.email
+        li
+          strong Email:
+          |  #{user.email}
+      if user.firstName
+        li
+          strong First Name:
+          |  #{user.firstName}
+      if user.lastName
+        li
+          strong Last Name:
+          |  #{user.lastName}

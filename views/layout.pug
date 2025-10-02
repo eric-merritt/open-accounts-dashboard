@@ -14,15 +14,13 @@ html
             form#logout-form(action="/logout", method="POST")
               button(type="submit") Logout
           else
-            a#login-link(href='/login') Login
-    script.
-      const logoutForm = document.getElementById("logout-form");
-      if (logoutForm) {
-        logoutForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-          fetch("/logout", { method: "POST" })
-            .then(() => window.location.href = "/")
-            .catch(() => window.location.href = "/");
-        });
-      }
-    block content
+            #loginModal 
+              form(action="/login", method="post")
+                fieldset
+                  label(for="email") Email:
+                  input(type="email", name="email", placeholder="Enter your RMI email", required)
+                fieldset
+                  label(for="password") Password:
+                  input(type="password", name="password", placeholder="Password", required)
+                  button(type="submit") Login
+block content

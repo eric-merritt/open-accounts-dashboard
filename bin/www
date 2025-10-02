@@ -4,8 +4,7 @@ const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD;
-const URI = process.env.MONGODB_DRIVER.replace(process.env.SPLIT_TARGET, MONGODB_PASSWORD);
+const URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT | 8703;
 
 const server = http.createServer(app);
@@ -64,6 +63,9 @@ async function main() {
 
             console.log("Inserted Users: ", newUsers);
         }
+    } catch (err) {
+        let error = new Error(err);
+        console.error(err.message);
     } finally {
         console.log("You made it.")
     }
